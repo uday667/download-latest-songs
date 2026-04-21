@@ -1,3 +1,4 @@
+
 # TeluguTune AI (Legal Music Discovery Platform)
 
 This repository is a **legal, production-oriented starter** for a music discovery app in the Telugu music domain.
@@ -23,6 +24,7 @@ This repository is a **legal, production-oriented starter** for a music discover
 - AI Provider: OpenAI or Claude (pluggable)
 - Mobile app: React Native (roadmap for OpenADK/Android packaging)
 
+
 ## Run locally
 
 ```bash
@@ -30,6 +32,8 @@ cd backend
 mvn spring-boot:run
 ```
 
+
+=======
 Open UI: `http://localhost:8080/`
 
 Health check:
@@ -37,6 +41,7 @@ Health check:
 ```bash
 curl http://localhost:8080/api/health
 ```
+
 
 ## Docker
 
