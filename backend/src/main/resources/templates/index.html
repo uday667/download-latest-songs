@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${appName}">TeluguTune AI</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="bg-gradient"></div>
+<header class="header container">
+    <div class="brand">🎧 <span th:text="${appName}">TeluguTune AI</span></div>
+    <nav class="nav">
+        <a href="#discover">Discover</a>
+        <a href="#moods">Moods</a>
+        <a href="#favorites">Favorites</a>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <div>
+            <h1>Discover Telugu music with AI-powered recommendations.</h1>
+            <p>Search legal music links, explore moods, and build playlists with a modern responsive experience.</p>
+            <div class="search-wrap" id="discover">
+                <input id="searchInput" type="text" placeholder="Search by song, artist, movie...">
+                <button id="searchBtn">Search</button>
+            </div>
+        </div>
+        <div class="glass card">
+            <h3>Now Trending</h3>
+            <ul class="list">
+                <li th:each="song: ${trending}">
+                    <span>
+                      <strong th:text="${song.title}">Song</strong>
+                      <small th:text="${song.artist}">Artist</small>
+                    </span>
+                    <span class="tag" th:text="${song.source}">Source</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="moods" class="panel glass">
+        <h2>Mood Picks</h2>
+        <div class="chips">
+            <button th:each="m: ${moods}" class="chip" th:text="${m}">Happy</button>
+        </div>
+    </section>
+
+    <section id="results" class="panel glass">
+        <div class="section-head">
+            <h2>Search Results</h2>
+            <small>Demo data (replace with Spotify/YouTube API)</small>
+        </div>
+        <div id="resultGrid" class="grid"></div>
+    </section>
+
+    <section id="favorites" class="panel glass">
+        <div class="section-head">
+            <h2>Favorites</h2>
+            <small>Stored in browser local storage</small>
+        </div>
+        <div id="favoriteGrid" class="grid"></div>
+    </section>
+</main>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
