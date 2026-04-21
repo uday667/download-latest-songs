@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: telugutune
+      POSTGRES_USER: telugutune
+      POSTGRES_PASSWORD: telugutune
+    ports:
+      - "5432:5432"
