@@ -3,39 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${appName}">Next-Gen Music Discovery Platform</title>
+    <title th:text="${appName}">TeluguTune AI</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <div class="bg-gradient"></div>
 <header class="header container">
-    <div class="brand">🎧 <span th:text="${appName}">Next-Gen Music Discovery Platform</span></div>
+    <div class="brand">🎧 <span th:text="${appName}">TeluguTune AI</span></div>
     <nav class="nav">
         <a href="#discover">Discover</a>
-        <a href="#trending">Trending</a>
-        <a href="#latest">Latest</a>
-        <a href="#playlists">Playlists</a>
+        <a href="#moods">Moods</a>
+        <a href="#favorites">Favorites</a>
     </nav>
 </header>
 
 <main class="container">
     <section class="hero">
         <div>
-            <h1>Music first. UI second. Discovery always.</h1>
-            <p>Fast search and clear results. Play instantly from official providers and export playlist data anytime.</p>
+            <h1>Discover Telugu music with AI-powered recommendations.</h1>
+            <p>Search legal music links, explore moods, and build playlists with a modern responsive experience.</p>
             <div class="search-wrap" id="discover">
-                <input id="searchInput" type="text" placeholder="Search songs, artists, albums...">
+                <input id="searchInput" type="text" placeholder="Search by song, artist, movie...">
                 <button id="searchBtn">Search</button>
             </div>
-            <small class="hint">Tip: try "Sid", "Anirudh", or "Guntur".</small>
         </div>
         <div class="glass card">
-            <h3>Trending Right Now</h3>
+            <h3>Now Trending</h3>
             <ul class="list">
                 <li th:each="song: ${trending}">
                     <span>
                       <strong th:text="${song.title}">Song</strong>
-                      <small><span th:text="${song.artist}">Artist</span> · <span th:text="${song.album}">Album</span></small>
+                      <small th:text="${song.artist}">Artist</small>
                     </span>
                     <span class="tag" th:text="${song.source}">Source</span>
                 </li>
@@ -43,36 +41,27 @@
         </div>
     </section>
 
-    <section class="panel glass">
-        <h2>Smart Mood Discovery</h2>
-        <div class="chips" id="moodChips">
+    <section id="moods" class="panel glass">
+        <h2>Mood Picks</h2>
+        <div class="chips">
             <button th:each="m: ${moods}" class="chip" th:text="${m}">Happy</button>
         </div>
     </section>
 
-    <section id="trending" class="panel glass">
-        <div class="section-head"><h2>Trending</h2><small>API-backed</small></div>
-        <div id="trendingGrid" class="grid"></div>
-    </section>
-
-    <section id="latest" class="panel glass">
-        <div class="section-head"><h2>Latest Releases</h2><small>Sorted by newest year</small></div>
-        <div id="latestGrid" class="grid"></div>
-    </section>
-
     <section id="results" class="panel glass">
-        <div class="section-head"><h2>Search Results</h2><small id="resultsMeta">Type and search to filter songs</small></div>
+        <div class="section-head">
+            <h2>Search Results</h2>
+            <small>Demo data (replace with Spotify/YouTube API)</small>
+        </div>
         <div id="resultGrid" class="grid"></div>
     </section>
 
-    <section id="playlists" class="panel glass">
-        <div class="section-head"><h2>Playlists</h2><small>Create and export</small></div>
-        <div class="playlist-controls">
-            <input id="playlistName" type="text" placeholder="Create playlist">
-            <button id="createPlaylistBtn">Create</button>
-            <button id="exportPlaylistBtn" class="secondary">Export JSON</button>
+    <section id="favorites" class="panel glass">
+        <div class="section-head">
+            <h2>Favorites</h2>
+            <small>Stored in browser local storage</small>
         </div>
-        <div id="playlistList" class="grid"></div>
+        <div id="favoriteGrid" class="grid"></div>
     </section>
 </main>
 

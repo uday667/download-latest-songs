@@ -1,26 +1,29 @@
-# Next-Gen Music Discovery Platform
 
-A modern, fast, and intuitive music platform starter for discovering, streaming, and organizing songs using legal APIs.
+# TeluguTune AI (Legal Music Discovery Platform)
 
-## Core vision
+This repository is a **legal, production-oriented starter** for a music discovery app in the Telugu music domain.
 
-Create a clean alternative to cluttered music apps by combining speed, simplicity, and smart discovery.
+## What this project does
 
-## Implemented in this repository
+- Uses **legal integrations** (Spotify / YouTube links) for playback handoff.
+- Provides secure user login with JWT/Firebase roadmap.
+- Supports search, recommendations, and favorites endpoints.
+- Includes a Spring Boot backend scaffold and **attractive responsive Thymeleaf UI**.
 
-- Spring Boot backend with APIs for search, trending, latest, recommendations, and legal download-link handoff.
-- Responsive dark-themed Thymeleaf UI with clearer sections and improved search feedback.
-- Playlist creation and JSON export for quick user workflow demo.
-- Legal streaming/download-link handoff only (Spotify / YouTube links).
+## What this project does **not** do
 
-## API endpoints
+- No piracy sources.
+- No unauthorized song downloads.
+- No bypassed login/security.
 
-- `GET /api/health`
-- `GET /api/music/search?q=`
-- `GET /api/music/trending`
-- `GET /api/music/latest`
-- `GET /api/music/recommendations?mood=`
-- `GET /api/music/{id}/download` (returns legal provider link; no direct copyrighted file download)
+## Stack
+
+- Backend: Spring Boot 3 (Java 21)
+- Web Frontend: Thymeleaf + modern CSS + vanilla JS
+- Database: PostgreSQL
+- AI Provider: OpenAI or Claude (pluggable)
+- Mobile app: React Native (roadmap for OpenADK/Android packaging)
+
 
 ## Run locally
 
@@ -29,10 +32,29 @@ cd backend
 mvn spring-boot:run
 ```
 
-Then open: `http://localhost:8080/`
+
+=======
+Open UI: `http://localhost:8080/`
+
+Health check:
+
+```bash
+curl http://localhost:8080/api/health
+```
+
 
 ## Docker
 
 ```bash
 docker compose up --build
 ```
+
+## React Native APK roadmap (for store submission)
+
+1. Create RN app (Expo recommended).
+2. Connect to this backend APIs.
+3. Configure Android package id + app signing.
+4. Build APK/AAB using EAS Build.
+5. Upload to target store (OpenADK/Play Console as applicable).
+
+> Note: This repository currently ships the web frontend (Thymeleaf) and backend; RN client is the next deliverable.
